@@ -1,9 +1,9 @@
-
-#include"iostream"
+#include "iostream"
 #include "string"
+
 using namespace std;
-class student
-{
+
+class student{
 public:
     friend class list;
     student *next;
@@ -22,8 +22,8 @@ public:
     void input();
     void output();
 };
-void student::input( )
-{
+
+void student::input( ){
     cout<<"please input the student's name"<<std::endl;
     cin>>name;
     cout<<"please input the student's number"<<std::endl;
@@ -44,9 +44,7 @@ void student::input( )
     cin>>java;
 }
 
-void student::output()
-{
-    
+void student::output(){   
     cout<<"name:"<<name<<"\n";
     cout<<"number:"<<num<<"\n";
     cout<<"gender:"<<gender<<"\n";
@@ -56,9 +54,7 @@ void student::output()
     cout<<"python:"<<python<<"\n";
 }
 
-class slist
-
-{
+class slist{
 public:
     student *first;
     student *last;
@@ -72,21 +68,17 @@ public:
     int count();                          // 显示链表的当前节点数目
 };
 
-slist & slist::insert(const student & A)
-{
+slist & slist::insert(const student & A){
     student * pointer=last;
     *pointer=A;
     last=new student;
     pointer->next=last;
-    return *this;
-    
+    return *this;  
 }
 
-slist & slist::emitname(char * name1)
-{
+slist & slist::emitname(char * name1){
     student * pointer;
-    if(first==last)
-    {
+    if(first==last){
         cout<<" this list is already empty!!"<<endl;
         return *this;
     }
@@ -116,8 +108,7 @@ slist & slist::emitname(char * name1)
     }
     
 }
-slist & slist::emitnum(int num1)
-{
+slist & slist::emitnum(int num1){
     student * pointer;
     if(first==last)
     {
@@ -148,12 +139,9 @@ slist & slist::emitnum(int num1)
             return *this;
         }
     }
-
 }
 
-void  slist::searchname(char * name1)
-
-{
+void  slist::searchname(char * name1){
     student *pointer=first;
     if(first==last)
          cout<<"there is no data"<<endl;
@@ -164,16 +152,12 @@ void  slist::searchname(char * name1)
       {
         if(strcmp(pointer->name,name1)==0)
             pointer->output();
-        pointer=pointer->next;
-        
-      }
-    
+        pointer=pointer->next;       
+      }    
     }
 }
 
-void  slist::searchnum(int  num1)
-
-{
+void  slist::searchnum(int num1){
     student *pointer=first;
     if(first==last)
         cout<<"there is no data"<<endl;
@@ -183,17 +167,14 @@ void  slist::searchnum(int  num1)
        {
         if(pointer->num==num1)
             pointer->output();
-        pointer=pointer->next;
-        
+        pointer=pointer->next;        
        }
-    }
-    
+    }    
 }
 
-bool slist::display()
-{
+bool slist::display(){
     student * pointer, *q, *r;
-        int max=0,min=300;
+    int max=0,min=300;
     pointer=first;
     if(first==last)
         cout<<"no data!"<<endl;
@@ -209,50 +190,29 @@ bool slist::display()
         if(min>now)
         {min=now;
             r=pointer;}
-    
-          pointer=pointer->next;
-    
-    
+          pointer=pointer->next;   
        }
         cout<<"highest points:"<<max<<endl;
         q->output();
         cout<<"lestest points:"<<min<<endl;
-        r->output();
-    
-    
+        r->output();  
     }
-        return true;
-    
+        return true;   
 }
 
-int     slist::count()
-{
-    
-        
+int slist::count(){       
     int counter=0;
-    
     student * pointer=first;
-    
-    while(pointer!=last)
-        
+    while(pointer!=last)     
     {
-        
         counter++;
-        
-        pointer=pointer->next;
-        
-        
-    }
-    
+        pointer=pointer->next;      
+    }  
     cout<<"the number  of students  is:"<<counter<<endl;
-    
-    return 0;
-    
-    
+    return 0;  
 }
 
-int   main()
-
+int  main()
 {
     char data[20];
     int  answer;
@@ -269,9 +229,7 @@ int   main()
         std::cin>>answer;
         switch (answer)
         {
-            case 1:
-                
-                
+            case 1:    
             { cout<<"from now please input 5 data  inorder \n";
                 student A;
                 A.input();
@@ -349,48 +307,3 @@ int   main()
     }
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
